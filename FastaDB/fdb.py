@@ -20,7 +20,7 @@ class FastaDB():
 
     def ImportFasta(self):
         f = open(self.filename, "r+")
-
+        
 
 
 FDB = FastaDB()

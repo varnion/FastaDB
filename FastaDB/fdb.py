@@ -18,11 +18,31 @@ class FastaDB():
 
         return file
 
-    def ImportFasta(self):
-        f = open(self.filename, "r+")
-        
+    def FastaToFDB(self, fastafile):
+        content = open(fastafile,"r")
+        fdbformat = {}
+        for line in content:
+            if line.startswith(">") == True:
+                print("COORDENADA")
+
+            if line.startswith(";") == True:
+                print("Comentário")
+
+
+            if line.startswith(";") == False and line.startswith(">") == False:
+                print("sequencia")
+
+    def ImportFasta(self, fastafile):
+        try:
+            a = open(fastafile, "r")
+            f = open(self.filename, "r+")
+            #print(a.read())
+            FastaDB().FastaToFDB(fastafile)
+        except ValueError:
+            return ValueError
+
 
 
 FDB = FastaDB()
 FDB.DB("file3.fdb")
-FDB.InsertFasta()
+FDB.ImportFasta("test.fasta")

@@ -45,6 +45,7 @@ This is going to be updated with a how to use guide when the library is more dev
 Theoriticaly you will need to import the FDB with the library or with a JSON reader and them do the operations
 Those operations would be: insert, update, change, create db ...
 
-##Features
+##Features for the first version (MVP)
 
-* TODO
+- Generate a JSON based file(FDB), to handle the sequences
+- Make queries like, SELECT, INSERT and UPDATE to the FastaDB file

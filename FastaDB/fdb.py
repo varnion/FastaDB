@@ -1,4 +1,5 @@
 # FASTADB - A DATABASE FOR YOUR FASTA FILES
+from Bio.SeqIO import FastaIO, parse
 
 class FastaDB():
     def __init__(self):
@@ -19,18 +20,11 @@ class FastaDB():
         return file
 
     def FastaToFDB(self, fastafile):
-        content = open(fastafile,"r")
-        fdbformat = {}
-        for line in content:
-            if line.startswith(">") == True:
-                print("COORDENADA")
+        sequences = parse(open(fastafile), 'fasta')
+        for fasta in sequences:
+            name, sequence = fasta.id, str(fasta.seq)
+            print(name, sequence)
 
-            if line.startswith(";") == True:
-                print("Comentário")
-
-
-            if line.startswith(";") == False and line.startswith(">") == False:
-                print("sequencia")
 
     def ImportFasta(self, fastafile):
         try:

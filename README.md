@@ -9,6 +9,7 @@ The project is going to be used to handle genes, sequences and genetic expressio
 ```
 {
   'FastaDB':'GENOME.FDB'
+  'gene1':
 {
   'description':'>1:12009-13670',
   'gene':'GTGTCTGACTTCCAGCAACTGCTGGCCTGT...',
@@ -17,7 +18,8 @@ The project is going to be used to handle genes, sequences and genetic expressio
   'date':'2016-07-01',
   'user':'vmesel',
   'observations':'Nothing to say'
-}
+},
+'gene2':
 {
   'description':'>1:14410-29806',
   'gene':'TCAGTTCTTTATTGATTGGTGTGCCGTTTT...',
@@ -26,7 +28,7 @@ The project is going to be used to handle genes, sequences and genetic expressio
   'date':'2016-07-01',
   'user':'vmesel',
   'observations':'Nothing to say'
-}
+},
 }
 ```
 We are using Python 3.2 or later to develop this project. No libraries are being used at the moment and we want to maintain it that way so we can let bioinformats download the less things possible. The FDB file will be readable as JSON so everyone can have an integration with the library, even if the programming language doesn't support FDB file.

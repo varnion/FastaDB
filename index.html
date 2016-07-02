@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <title>Fastadb by vmesel</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Fastadb</h1>
+        <h2>Fasta File archiver for biological annotation and records</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/vmesel/FastaDB/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/vmesel/FastaDB/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/vmesel/FastaDB" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <p>Fasta File archiver for biological gene sequences, exons, introns and proteins that can be handled in a FASTA file.</p>
+
+<h2>
+<a id="about-the-project" class="anchor" href="#about-the-project" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>About the project</h2>
+
+<p>The project is going to be used to handle genes, sequences and genetic expressions that are held by the FASTA files nowadays. It will convert the fasta file to a file with a bunch of dicts like this:</p>
+
+<pre><code>{
+  'FastaDB':'GENOME.FDB'
+  'gene1':
+{
+  'description':'&gt;1:12009-13670',
+  'gene':'GTGTCTGACTTCCAGCAACTGCTGGCCTGT...',
+  'geneinfo':'From GENOME Project',
+  'file':'test.fasta',
+  'date':'2016-07-01',
+  'user':'vmesel',
+  'observations':'Nothing to say'
+},
+'gene2':
+{
+  'description':'&gt;1:14410-29806',
+  'gene':'TCAGTTCTTTATTGATTGGTGTGCCGTTTT...',
+  'geneinfo':'From GENOME Project',
+  'file':'test.fasta',
+  'date':'2016-07-01',
+  'user':'vmesel',
+  'observations':'Nothing to say'
+},
+}
+</code></pre>
+
+<p>We are using Python 3.2 or later to develop this project. No libraries are being used at the moment and we want to maintain it that way so we can let bioinformats download the less things possible. The FDB file will be readable as JSON so everyone can have an integration with the library, even if the programming language doesn't support FDB file.</p>
+
+<p>This will help to build a centralized NoSQL genome database to help studies about cells. It needs to be kept as simple as possible.</p>
+
+<h2>
+<a id="how-it-will-be-distributed" class="anchor" href="#how-it-will-be-distributed" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How it will be distributed</h2>
+
+<p>Mainly, as this is a Python Package, it will be available at PyPi so every Python user can use it and help us improve the engine. As this is a JSON readable file too, we can use it on any platform and make use of JSON commands.</p>
+
+<h2>
+<a id="how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to use</h2>
+
+<p>This is going to be updated with a how to use guide when the library is more developed.
+Theoriticaly you will need to import the FDB with the library or with a JSON reader and them do the operations
+Those operations would be: insert, update, change, create db ...</p>
+
+<h2>
+<a id="features-for-the-first-version-mvp" class="anchor" href="#features-for-the-first-version-mvp" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Features for the first version (MVP)</h2>
+
+<ul>
+<li>Generate a JSON based file(FDB), to handle the sequences</li>
+<li>Make queries like, SELECT, INSERT and UPDATE to the FastaDB file</li>
+</ul>
+      </section>
+    </div>
+
+    
+  </body>
+</html>

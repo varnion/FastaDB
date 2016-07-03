@@ -6,6 +6,7 @@ MANIFEST.in
 setup.cfg
 setup.py
 FastaDB/fdb.py
+FastaDB/fdb_registers.py
 FastaDB.egg-info/PKG-INFO
 FastaDB.egg-info/SOURCES.txt
 FastaDB.egg-info/dependency_links.txt

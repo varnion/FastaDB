@@ -1,0 +1,3 @@
+[console_scripts]
+fastadb = fastadb.cli:main
+

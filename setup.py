@@ -3,7 +3,7 @@
 
 from setuptools import setup
 
-with open('README.rst') as readme_file:
+with open('README.md') as readme_file:
     readme = readme_file.read()
 
 with open('HISTORY.rst') as history_file:
@@ -19,7 +19,7 @@ test_requirements = [
 ]
 
 setup(
-    name='fastadb',
+    name='FastaDB',
     version='0.0.1',
     description="Fasta File archiver for biological annotation and records",
     long_description=readme + '\n\n' + history,
@@ -27,10 +27,10 @@ setup(
     author_email='vinicius@bigsp.com.br',
     url='https://github.com/vmesel/fastadb',
     packages=[
-        'fastadb',
+        'FastaDB',
     ],
-    package_dir={'fastadb':
-                 'fastadb'},
+    package_dir={'FastaDB':
+                 'FastaDB'},
     entry_points={
         'console_scripts': [
             'fastadb=fastadb.cli:main'
@@ -54,6 +54,6 @@ setup(
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
     ],
-    test_suite='tests',
+    test_suite='test',
     tests_require=test_requirements
 )

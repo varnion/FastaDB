@@ -1,5 +1,6 @@
 # FASTADB - A DATABASE FOR YOUR FASTA FILES
 
+
 class FastaDB():
     def __init__(self):
         self.filename = ""
@@ -19,29 +20,26 @@ class FastaDB():
         return file
 
     def FastaToFDB(self, fastafile):
-        content = open(fastafile,"r")
-        fdbformat = {}
+        content = open(fastafile, "r")
+        # fdbformat = {}
         for line in content:
-            if line.startswith(">") == True:
+            if line.startswith(">") is True:
                 print("COORDENADA")
 
-            if line.startswith(";") == True:
+            if line.startswith(";") is True:
                 print("Comentário")
 
-
-            if line.startswith(";") == False and line.startswith(">") == False:
+            if line.startswith(";") is False and line.startswith(">") is False:
                 print("sequencia")
 
     def ImportFasta(self, fastafile):
         try:
-            a = open(fastafile, "r")
-            f = open(self.filename, "r+")
-            #print(a.read())
+            # a = open(fastafile, "r")
+            # f = open(self.filename, "r+")
+            # print(a.read())
             FastaDB().FastaToFDB(fastafile)
         except ValueError:
             return ValueError
-
-
 
 FDB = FastaDB()
 FDB.DB("file3.fdb")

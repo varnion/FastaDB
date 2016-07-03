@@ -13,6 +13,9 @@ class FDBRegister():
         self._user = ""
         self._observations = ""
 
+    def __repr__(self):
+        return self._gene
+
     def build_dictionary(self):
         dictionary = {}
 

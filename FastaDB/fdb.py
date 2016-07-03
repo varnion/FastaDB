@@ -34,26 +34,24 @@ class FastaDB():
         dict_header = self.generate_fdb_file_header()
         fdb_file_dicts = [dict_header]
 
+        index = 1
         for register in fdb_registers:
-            fdb_file_dicts.append(register.build_dictionary())
+            new_dict = {}
+            new_dict["gene"+str(index)] = register.build_dictionary() 
+            fdb_file_dicts.append(new_dict)
+            index = index + 1
 
         return json.dumps(fdb_file_dicts)
-
-    def store_register(self, fdb_registers, fdb_register):
-        """
-        Stores a register in fdb_registers
-        """
-        if (fdb_registers is not None) and (fdb_register is not None):
-            fdb_registers.append(fdb_register)
 
     def FastaToFDB(self, fastafile):
         fdb_registers = []
         fdb_register = FDBRegister()
+        valid_letters = ['A','T','C','G','U']
         content = open(fastafile, "r")
 
         for line in content:
-            if line.startswith(">") is True:
-                self.store_register(fdb_registers, fdb_register)
+            if line.startswith(">") is True: 
+                fdb_registers.append(fdb_register)
                 fdb_register = FDBRegister()
                 fdb_register.filename = fastafile
                 fdb_register.description = line
@@ -61,7 +59,7 @@ class FastaDB():
             elif line.startswith(";") is True:
                 fdb_register.observations = line
 
-            else:
+            elif (len(line) > 0) and (line[0] in valid_letters):
                 fdb_register.gene = fdb_register.gene + line
 
         return self.mount_fdb_file(fdb_registers)

@@ -1,5 +1,6 @@
 # FASTADB - A DATABASE FOR YOUR FASTA FILES
 
+from Bio.SeqIO import parse
 from fdb_registers import FDBRegister
 import json
 
@@ -37,7 +38,7 @@ class FastaDB():
         index = 1
         for register in fdb_registers:
             new_dict = {}
-            new_dict["gene"+str(index)] = register.build_dictionary() 
+            new_dict["gene"+str(index)] = register.build_dictionary()
             fdb_file_dicts.append(new_dict)
             index = index + 1
 
@@ -45,30 +46,24 @@ class FastaDB():
 
     def FastaToFDB(self, fastafile):
         fdb_registers = []
-        fdb_register = FDBRegister()
-        valid_letters = ['A','T','C','G','U']
-        content = open(fastafile, "r")
+        content = open(fastafile)
 
-        for line in content:
-            if line.startswith(">") is True: 
-                fdb_registers.append(fdb_register)
-                fdb_register = FDBRegister()
-                fdb_register.filename = fastafile
-                fdb_register.description = line
+        sequences = parse(content, 'fasta')
 
-            elif line.startswith(";") is True:
-                fdb_register.observations = line
+        for sequence in sequences:
+            fdb_register = FDBRegister()
+            fdb_register.filename = fastafile
+            fdb_register.description = sequence.id
+            fdb_register.gene = str(sequence.seq)
 
-            elif (len(line) > 0) and (line[0] in valid_letters):
-                fdb_register.gene = fdb_register.gene + line
+            fdb_registers.append(fdb_register)
+
+        content.close()
 
         return self.mount_fdb_file(fdb_registers)
 
     def ImportFasta(self, fastafile):
         try:
-            # a = open(fastafile, "r")
-            # f = open(self.filename, "r+")
-            # print(a.read())
             return FastaDB().FastaToFDB(fastafile)
         except ValueError:
             return ValueError

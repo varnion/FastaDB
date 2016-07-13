@@ -2,7 +2,7 @@
 
 from Bio.SeqIO import parse
 from fdb_registers import FDBRegister
-import json
+from datetime import date
 
 
 class FastaDB():
@@ -25,7 +25,9 @@ class FastaDB():
 
     def generate_fdb_file_header(self):
         dict_header = {}
-        DICT_header['FastaDB'] = 'GENOME.FDB'
+        dict_header['FastaDB'] = 'GENOME.FDB'
+        dict_header['ModifiedData'] = today()
+
         return dict_header
 
     def mount_fdb_file(self, fdb_registers):
@@ -33,18 +35,17 @@ class FastaDB():
             return None
 
         dict_header = self.generate_fdb_file_header()
-        fdb_file_dicts = [dict_header]
+        fdb_file = dict_header
 
-        index = 1
-        for register in fdb_registers:
-            new_dict = {}
-            new_dict["gene"+str(index)] = register.build_dictionary()
-            fdb_file_dicts.append(new_dict)
-            index = index + 1
+        for i_register in len(fdb_registers):
+            new_dict = register.build_dictionary()
+            new_dict['id'] = i_register
 
-        return json.dumps(fdb_file_dicts)
+            fdb_file[str(i_register)] = new_dict
 
-    def FastaToFDB(self, fastafile):
+        return fdb_file
+
+    def FastaToFDB(self, fastafile,username):
         fdb_registers = []
         content = open(fastafile)
 
@@ -52,9 +53,12 @@ class FastaDB():
 
         for sequence in sequences:
             fdb_register = FDBRegister()
-            fdb_register.filename = fastafile
-            fdb_register.description = sequence.id
+            fdb_register.description = sequence.description
             fdb_register.gene = str(sequence.seq)
+            fdb_register.geneinfo = sequence.annotations
+            fdb_register.filename = fastafile
+            fdb_register.date = date.today()
+            fdb_register.user = username
 
             fdb_registers.append(fdb_register)
 
@@ -62,8 +66,8 @@ class FastaDB():
 
         return self.mount_fdb_file(fdb_registers)
 
-    def ImportFasta(self, fastafile):
+    def ImportFasta(self, fastafile,username):
         try:
-            return FastaDB().FastaToFDB(fastafile)
+            return FastaDB().FastaToFDB(fastafile,username)
         except ValueError:
             return ValueError

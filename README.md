@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/vmesel/FastaDB.png?label=ready&title=Ready)](https://waffle.io/vmesel/FastaDB)
 #FastaDB
 
 Fasta File archiver for biological gene sequences, exons, introns and proteins that can be handled in a FASTA file.

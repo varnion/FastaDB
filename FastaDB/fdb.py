@@ -25,7 +25,7 @@ class FastaDB():
 
     def generate_fdb_file_header(self):
         dict_header = {}
-        dict_header['FastaDB'] = 'GENOME.FDB'
+        DICT_header['FastaDB'] = 'GENOME.FDB'
         return dict_header
 
     def mount_fdb_file(self, fdb_registers):

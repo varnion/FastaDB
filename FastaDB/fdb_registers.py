@@ -22,7 +22,7 @@ class FDBRegister():
         dictionary["gene"] = self._gene
         dictionary["geneinfo"] = self._geneinfo
         dictionary["file"] = self._filename
-        dictionary["date"] = str(self._date)
+        dictionary["date"] = self._date.strftime('%d-%m-%Y')
         dictionary["user"] = self._user
         dictionary["observations"] = self._observations
 

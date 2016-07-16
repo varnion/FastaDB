@@ -10,7 +10,7 @@ The project is going to be used to handle genes, sequences and genetic expressio
 ```
 {
   'FastaDB':'FDB-FILE-NAME.FDB',
-  'ModifiedDate','2016-07-13',
+  'ModifiedDate':'2016-07-13',
   '1':
 {
   'id':1,

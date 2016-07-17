@@ -60,14 +60,16 @@ Get Started!
 Ready to contribute? Here's how to set up `fastadb` for local development.
 
 1. Fork the `fastadb` repo on GitHub.
-2. Clone your fork locally::
+
+2. Install your local copy into a virtualenv. Assuming you have virtualenvwrapper installed, this is how you set up your fork for local development::
+
+    $ virtualenv fastadb
+    $ cd fastadb/
+
+3. Clone your fork locally::
 
     $ git clone git@github.com:your_name_here/fastadb.git
-
-3. Install your local copy into a virtualenv. Assuming you have virtualenvwrapper installed, this is how you set up your fork for local development::
-
-    $ mkvirtualenv fastadb
-    $ cd fastadb/
+    $ cd FastaDB/    
     $ python setup.py develop
 
 4. Create a branch for local development::

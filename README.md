@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/vmesel/FastaDB.png?label=ready&title=Ready)](https://waffle.io/vmesel/FastaDB)
 #FastaDB
 
 Fasta File archiver for biological gene sequences, exons, introns and proteins that can be handled in a FASTA file.
@@ -8,8 +9,9 @@ Fasta File archiver for biological gene sequences, exons, introns and proteins t
 The project is going to be used to handle genes, sequences and genetic expressions that are held by the FASTA files nowadays. It will convert the fasta file to a file with a bunch of dicts like this:
 ```
 {
-  'FastaDB':'FDB-FILE-NAME.FDB'
-  'gene':
+  'FastaDB':'FDB-FILE-NAME.FDB',
+  'ModifiedDate':'2016-07-13',
+  '1':
 {
   'id':1,
   'description':'>1:12009-13670',
@@ -20,7 +22,7 @@ The project is going to be used to handle genes, sequences and genetic expressio
   'user':'vmesel',
   'observations':'Nothing to say'
 },
-'gene':
+'2':
 {
   'id':2,
   'description':'>1:14410-29806',
@@ -49,6 +51,6 @@ Those operations would be: insert, update, change, create db ...
 
 ##Features for the first version (MVP)
 
-- Generate a JSON based file(FDB), to handle the sequences
-- Make queries like, SELECT, INSERT and UPDATE to the FastaDB file
-- Make it scrappable in any language available, like a Universal Format
+- [X] Generate a JSON based file(FDB), to handle the sequences
+- [ ] Make it available to import GenBank and Fasta data (Partially done)
+- [ ] Make queries like, SELECT and UPDATE to the FastaDB file

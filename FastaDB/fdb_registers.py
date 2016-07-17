@@ -2,6 +2,7 @@
 
 from datetime import date
 
+
 class FDBRegister():
     def __init__(self):
         self._description = ""

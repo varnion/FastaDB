@@ -1,3 +1,3 @@
-from fdb import FastaDB 
+from fdb import FastaDB
 
 __all__ = ["FastaDB"]

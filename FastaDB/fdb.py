@@ -1,7 +1,5 @@
 # FASTADB - A DATABASE FOR YOUR FASTA FILES
 
-import sys
-
 from Bio.SeqIO import parse
 from fdb_registers import FDBRegister
 from datetime import date
@@ -47,13 +45,12 @@ class FastaDB():
 
         return fdb_file
 
-
-    def FastaToFDB(self, fastafile,username):
+    def FastaToFDB(self, fastafile, username):
         fdb_registers = []
-        content = open(fastafile,"r")
+        content = open(fastafile, "r")
 
         sequences = parse(content, 'fasta')
-        
+
         for sequence in sequences:
             fdb_register = FDBRegister()
             fdb_register.description = sequence.description
@@ -69,8 +66,8 @@ class FastaDB():
 
         return self.mount_fdb_file(fdb_registers)
 
-    def ImportFasta(self, fastafile,username):
+    def ImportFasta(self, fastafile, username):
         try:
-            return self.FastaToFDB(fastafile,username)
+            return self.FastaToFDB(fastafile, username)
         except ValueError:
             return ValueError

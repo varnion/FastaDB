@@ -11,9 +11,6 @@ if sys.version_info >= (3, 0):
 else:
 	from FastaDB import FastaDB
 
-def CreateDB(self):
-	cursor = fdb()
-	cursor.DB("new-db.fdb")
 
 def Test_FDB_Parsing():
 	print("Instantiating a FastaDB object...")
@@ -22,13 +19,13 @@ def Test_FDB_Parsing():
 	filename = "../FastaDB/test2.fasta"
 	username = "inacio_medeiros"
 	print("Invoking FDB parsing...")
-	parsed_fdb_structure = fasta_db.ImportFasta(filename,username)
+	parsed_fdb_structure = fasta_db.ImportFasta(filename, username)
 	print("Saving in file...")
 	content = json.dumps(parsed_fdb_structure)
 	fdb_file_name = filename+".fdb"
-	fdb_file = open(fdb_file_name,"w")
+	fdb_file = open(fdb_file_name, "w")
 	fdb_file.write(content)
-	#print(len(content))
+
 
 if __name__ == "__main__":
 	Test_FDB_Parsing()

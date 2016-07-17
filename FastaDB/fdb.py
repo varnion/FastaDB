@@ -26,7 +26,7 @@ class FastaDB():
     def generate_fdb_file_header(self):
         dict_header = {}
         dict_header['FastaDB'] = 'GENOME.FDB'
-        dict_header['ModifiedData'] = date.today().strftime('%d-%m-%Y')
+        dict_header['ModifiedDate'] = date.today().strftime('%d-%m-%Y')
 
         return dict_header
 

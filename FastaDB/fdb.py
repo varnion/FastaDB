@@ -5,7 +5,7 @@ from fdb_registers import FDBRegister
 from datetime import date
 
 
-class FastaDB():
+class FastaDB(object):
     def __init__(self):
         self.filename = ""
 

@@ -3,7 +3,7 @@
 from datetime import date
 
 
-class FDBRegister():
+class FDBRegister(object):
     def __init__(self):
         self._description = ""
         self._gene = ""

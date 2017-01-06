@@ -10,8 +10,7 @@ with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
 requirements = [
-    'Click>=6.0',
-    # TODO: put package requirements here
+    'biopython',
 ]
 
 test_requirements = [
@@ -31,11 +30,6 @@ setup(
     ],
     package_dir={'FastaDB':
                  'FastaDB'},
-    entry_points={
-        'console_scripts': [
-            'fastadb=fastadb.cli:main'
-        ]
-    },
     include_package_data=True,
     install_requires=requirements,
     license="GNU General Public License v3",
